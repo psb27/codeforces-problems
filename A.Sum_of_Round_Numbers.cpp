@@ -1,3 +1,6 @@
+// A. Sum of Round Numbers
+// Problem tage - 1352A
+
 #pragma GCC optimize("Ofast")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
 #pragma GCC optimize("unroll-loops")
@@ -25,6 +28,34 @@ typedef pair<int, int> pi;
 
 void solve() {
 
+	int n;
+	cin >> n;
+
+	int arr[6];
+
+	int count = 0, m = 1;
+
+	for (int i = 1; i < 6; i++) {
+		arr[i] = n % 10;
+		n /= 10;
+
+
+		if (arr[i] != 0)
+			count++;
+	}
+
+	cout << count << endl;
+
+	for (int i = 1; i < 6; i++) {
+
+		if (arr[i] != 0)
+			cout << arr[i] * m << " ";
+
+		m = m * 10;
+	}
+
+	cout << endl;
+
 
 }
 
@@ -32,18 +63,18 @@ void solve() {
 int main()
 {
 #ifndef ONLINE_JUDGE
-   freopen("input.txt", "r", stdin);
-   freopen("output.txt", "w", stdout);
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
 #endif
 
-   fast_cin();
-   ll t;
-   cin >> t;
+	fast_cin();
+	ll t;
+	cin >> t;
 
-   while (t--) {
+	while (t--) {
 
-      solve();
-   }
+		solve();
+	}
 
-   return 0;
+	return 0;
 }

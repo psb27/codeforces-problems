@@ -1,3 +1,5 @@
+// A. Sorting Parts
+
 #pragma GCC optimize("Ofast")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
 #pragma GCC optimize("unroll-loops")
@@ -25,25 +27,48 @@ typedef pair<int, int> pi;
 
 void solve() {
 
+	int n;
+	cin >> n;
 
+	std::vector<int> arr(n);
+
+	for (int i = 0; i < n; i++)
+		cin >> arr[i];
+
+	vector<int>temp(n);
+
+	for (int i = 0; i < n; i++) {
+		temp[i] = arr[i];
+	}
+
+	sort(arr.begin(), arr.end());
+
+	for (int i = 0; i < n; i++) {
+		if (arr[i] != temp[i]) {
+			cout << "YES" << "\n";
+			return;
+		}
+	}
+
+	cout << "NO" << endl;
 }
 
 
 int main()
 {
 #ifndef ONLINE_JUDGE
-   freopen("input.txt", "r", stdin);
-   freopen("output.txt", "w", stdout);
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
 #endif
 
-   fast_cin();
-   ll t;
-   cin >> t;
+	fast_cin();
+	ll t;
+	cin >> t;
 
-   while (t--) {
+	while (t--) {
 
-      solve();
-   }
+		solve();
+	}
 
-   return 0;
+	return 0;
 }

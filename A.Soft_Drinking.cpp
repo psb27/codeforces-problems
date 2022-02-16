@@ -1,3 +1,6 @@
+// A. Soft Drinking
+// Problem Tag - 151A
+
 #pragma GCC optimize("Ofast")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
 #pragma GCC optimize("unroll-loops")
@@ -25,6 +28,21 @@ typedef pair<int, int> pi;
 
 void solve() {
 
+	int n, k, l, c, d, p, nl, np;
+
+	cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+
+	int total_drink = (k * l) / nl;
+
+	int total_lime = c * d;
+
+	int total_salt = p / np;
+
+	int drinks = min(total_drink, total_lime);
+
+	int ans = min(drinks, total_salt);
+
+	cout << (ans / n) << endl;
 
 }
 
@@ -32,18 +50,14 @@ void solve() {
 int main()
 {
 #ifndef ONLINE_JUDGE
-   freopen("input.txt", "r", stdin);
-   freopen("output.txt", "w", stdout);
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
 #endif
 
-   fast_cin();
-   ll t;
-   cin >> t;
+	fast_cin();
 
-   while (t--) {
+	solve();
 
-      solve();
-   }
 
-   return 0;
+	return 0;
 }

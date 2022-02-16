@@ -1,3 +1,7 @@
+// A. Chewbaсca and Number
+// Problem tag - 514A
+
+
 #pragma GCC optimize("Ofast")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
 #pragma GCC optimize("unroll-loops")
@@ -25,6 +29,29 @@ typedef pair<int, int> pi;
 
 void solve() {
 
+	string s;
+	cin >> s;
+
+	int j = 1;
+
+	int n = s.size();
+
+	rep(i , 0, n) {
+
+		if (s[0] == '9' && j == 1) {
+			j++;
+			continue;
+		}
+
+		if (s[i] - '0' <= 4) {
+			continue;
+		}
+
+		int x = 9 - (s[i] - '0');
+		s[i] = char(x) + '0';
+	}
+
+	cout << s << endl;
 
 }
 
@@ -32,18 +59,14 @@ void solve() {
 int main()
 {
 #ifndef ONLINE_JUDGE
-   freopen("input.txt", "r", stdin);
-   freopen("output.txt", "w", stdout);
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
 #endif
 
-   fast_cin();
-   ll t;
-   cin >> t;
+	fast_cin();
 
-   while (t--) {
+	solve();
 
-      solve();
-   }
 
-   return 0;
+	return 0;
 }
